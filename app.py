@@ -118,5 +118,14 @@ def analyze():
     except ValueError as e:
         return jsonify({"error": str(e)}), 400
 
+@app.route('/health', methods=['GET'])
+def health():
+    """
+    Health endpoint to check server status.
+    Returns:
+        JSON with server status.
+    """
+    return jsonify({"status": "OK"}), 200
+
 if __name__ == '__main__':
     app.run(debug=True)
